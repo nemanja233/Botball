@@ -1,0 +1,41 @@
+#!/usr/bin/python3
+import os, sys
+sys.path.append("/usr/lib")
+import _kipr as k
+s_port=2 #Sensor Port
+white= k.analog(s_port)#festgelegtes weiß
+dif=20#differenz um schwarz zu definieren
+x=0
+rot_increse= 20 #rotationslänge erhöhung
+
+while True:
+    if white>=k.analog(s_port)+dif:
+		black=k.analog(s_port)
+        break()
+    else:
+        k.msleep(20)
+#Für Roboter mir den omni Reifen
+def motors(sets):
+    for count, motor in enumerate(sets):
+        k.motor(count, motor)
+        
+def links():
+    k.motor[100,0,100,0]
+        
+def rechts():
+    k.motor[0,100,0,100]
+    
+while True:
+    rotationszeit=100
+    
+    if k.analog(s_port)==white:
+        k.motor([100,100,100,100])
+    else:
+        while k.analog(s_port)==black:
+            if x%2==0:
+                rechts()
+            else:
+                links()
+            k.msleep(rotationszeit)
+            rotationszeit+=rot_increase
+            x+=1
