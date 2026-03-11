@@ -3,6 +3,12 @@ def motors(sets):
     for count, motor in enumerate(sets):
         k.motor(count, motor)
 
+def turn_90():
+    for i in range(2):
+        motors([100,-100,100,-100])
+        k.msleep(730)
+    k.ao()
+
 def line_follower():
     while k.analog(0) >= 300:
         sens_r = int(str(k.analog(2))[:-1] + "0")
@@ -26,6 +32,22 @@ def on_touch():
 
 line_follower()
 on_touch()
+
+for i in range(1):
+    motors([-100,-100,-100,-100])
+    k.msleep(1000)
+
+turn_90()
+
+for i in range(1):
+    motors([-100,-100,-100,-100])
+    k.msleep(1000)
+
+
+  
+    
+    
+
 
   
     
