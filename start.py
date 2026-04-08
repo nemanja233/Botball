@@ -53,8 +53,8 @@ while True:
         while sensor < black - dif:
             sensor = k.analog(s_port)
             if x % 2 == 0:
-                rechts(1)
+                rechts(roti)
             else:
-                links(1)
+                links(roti)
             roti += rot_increase
             x += 1

@@ -1,8 +1,8 @@
 #Für Roboter mit normalen Reifen
 def line_follower():
-    while k.analog(0) >= 300:
-        sens_r = int(str(k.analog(2))[:-2] + "00")
-        sens_l = int(str(k.analog(3))[:-2] + "00")
+    while k.analog(0) <= 3600:
+        sens_r = int(str(k.analog(0))[:-2] + "00")
+        sens_l = int(str(k.analog(1))[:-2] + "00")
         
         if sens_l == sens_r:
             k.motor(0,100)
