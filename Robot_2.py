@@ -3,8 +3,8 @@ import os, sys
 sys.path.append("/usr/lib")
 import _kipr as k
 
-distance_sensor_port_1	=	0
-distance_sensor_port_2	=	1
+distance_sensor_port_1	=	2
+distance_sensor_port_2	=	3
 align_accuracy = 100	#Je niedriger der Wert desto genauer
 rot_len = 1000
 rot_increase = 50
@@ -93,14 +93,17 @@ def line_follower():
     k.ao()
 
 def close_arm():
-    pass
+    k.motor(2,80)
+    k.msleep(1000)
 
 def open_arm():
-    pass
+    k.motor(2,-80)
+    k.msleep(1000)
             
-wait_for_light(0)
+k.wait_for_light(0)
 k.shut_down_in(115)
 k.enable_servos()
+
 drive_to_border()
 border_align_90()
 line_follower()
