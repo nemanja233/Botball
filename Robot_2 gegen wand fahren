@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+import os, sys
+sys.path.append("/usr/lib")
+import _kipr as k
+
+def wait_for_light(port):
+	while k.analog(port) > 2000:
+		k.msleep(100)
+		pass
+
+wait_for_light(0)
+k.shut_down_in(115)
+k.motor(0, 100)
+k.motor(1, 100)		#fahrt vor
+k.msleep(4500)
+
+k.motor(0, -100)
+k.motor(1, -100)	#fahrt kurz zrug
+k.msleep(100)
+
+k.ao()
