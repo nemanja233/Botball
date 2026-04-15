@@ -21,15 +21,11 @@ k.set_servo_position(0,2015)	#start zeug
 k.msleep(500)
 k.motor(0, 100)
 k.motor(1, 95)		#fahrt vor
-k.msleep(2700)
-
-k.motor(0, 100)
-k.motor(1, 100)		#fahrt vor
-k.msleep(1800)
+k.msleep(5000)
 
 k.motor(0, -100)
 k.motor(1, -100)	#fahrt kurz zrug
-k.msleep(1450)
+k.msleep(1000)
 
 k.motor(0, 100)
 k.motor(1, -30)	#fahrt 90 grad rechts
@@ -51,7 +47,10 @@ while True:
         k.motor(0,60)
     k.msleep(10)
     count += 1
-    if count >= 2000:
+    if count >= 2500:
         break
+        
+        
+
     
 k.ao()
