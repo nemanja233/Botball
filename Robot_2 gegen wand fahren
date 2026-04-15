@@ -3,19 +3,40 @@ import os, sys
 sys.path.append("/usr/lib")
 import _kipr as k
 
+def open_gate():
+    k.set_servo_position(0,1000)
+
 def wait_for_light(port):
-	while k.analog(port) > 2000:
+	while k.analog(port) > 1000:
 		k.msleep(100)
 		pass
 
+
+k.set_servo_position(0,200)
+
+
+
+
+
+open_gate
 wait_for_light(0)
 k.shut_down_in(115)
+k.set_servo_position(0,2045)
+k.msleep(500)
 k.motor(0, 100)
 k.motor(1, 100)		#fahrt vor
-k.msleep(4500)
+k.msleep(2500)
+
+k.set_servo_position(0,1900)
+
+k.motor(0, 100)
+k.motor(1, 100)		#fahrt vor
+k.msleep(2000)
+
+k.set_servo_position(0,1000)
 
 k.motor(0, -100)
 k.motor(1, -100)	#fahrt kurz zrug
-k.msleep(100)
+k.msleep(5000)
 
 k.ao()
